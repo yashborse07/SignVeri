@@ -1,0 +1,60 @@
+from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask_basicauth import BasicAuth
+
+app = Flask(__name__ , static_url_path='/static')
+app.secret_key = '001'
+
+# Configure BasicAuth
+app.config['BASIC_AUTH_USERNAME'] = 'admin'
+app.config['BASIC_AUTH_PASSWORD'] = 'password'
+app.config['BASIC_AUTH_FORCE'] = True
+basic_auth = BasicAuth(app)
+@basic_auth.required
+@app.route('/')
+
+def index():
+    return render_template('index.html')
+
+@app.route('/documentation')
+@basic_auth.required
+def documentation():
+    return render_template('documentation.html')
+
+@app.route('/aboutteam')
+@basic_auth.required
+def aboutteam():
+    return render_template('aboutteam.html')
+
+@app.route('/other')
+@basic_auth.required
+def other():
+    return render_template('other.html')
+
+@app.route('/research_paper')
+@basic_auth.required
+def research_paper():
+    filename = 'static/research_paper.pdf'
+    return send_file(filename, as_attachment=True)
+
+@app.route('/upload', methods=['POST'])
+@basic_auth.required
+def upload():
+    # Get the text from the text box
+    text = request.form['text']
+
+    # Get the image file
+    file = request.files['file']
+
+    # Save the image file
+    file.save('tocheck.png')
+
+    # Import and use your Pankaj module
+    import signprec as sp
+    res = sp.eval(text, 'tocheck.png')
+    x = {'IsGenuine': res[0], 'SimilarityScore': res[1],'SimScoreCheck': res[2]}
+
+    return render_template("Result.html", result=x)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

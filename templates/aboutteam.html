@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>d</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            .navbar {
+                background-color: #2196f3;
+              }
+              body {
+                background-color: #f0f0f0;
+              }
+              .navbar-brand, .nav-link {
+                color: black;
+              }
+              .navbar-nav a:hover {
+                color: #fff;
+                background-color: #333;
+                border-radius: 4px;
+              }
+              
+              footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+              }
+              .card{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding:10px;
+                margin-left: 5%;
+                margin-right: 5%;
+         
+              
+
+              }
+              .card-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top:7%;
+              }
+              .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+              }
+              
+              
+            </style>
+    </head>
+    <body class="bg-grey">
+        <nav class="navbar navbar-expand-lg navbar-light bg-grey">
+            <a class="navbar-brand text-white" href="#">Signature Verification Tool</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/">Home</a>
+                  </li> 
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="documentation">Documentation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="aboutteam">About Team</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="other">Other Projects</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="d-flex justify-content-center card-container">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='yashpic.jpg') }}" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <p class="card-text"><b>YASH BORSE</b> <br>Model planning, algorithm selection and deciding the features was my responsibility.</p>
+              </div>
+            </div><div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='saie.jpg') }}" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <p class="card-text"><b>ANJALI PATIL</b> <br>FrontEnd development, documentations and literature survey was done by me.</p>
+              </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="{{ url_for('static', filename='sumeet.jpeg') }}" class="card-img-top img-fluid" alt="...">
+              <div class="card-body">
+                <p class="card-text"><b>SUMEET SHAH</b> <br>Dataset gathering, preprocessing steps and testing was my role.</p>
+            </div>
+          </div>
+          <footer class="bg-black text-white py-3">
+            &copy; 2023 My Flask App. All rights reserved.
+          </footer>
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
